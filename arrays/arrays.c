@@ -109,7 +109,7 @@ void arr_insert(Array *arr, char *element, int index) {
   }
 
   // Resize the array if the number of elements is over capacity
-  if (arr->count + 1 > arr->capacity) {
+  if (arr->count >= arr->capacity) {
     resize_array(arr);
   }
 
