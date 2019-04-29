@@ -5,8 +5,8 @@ char *day_1_array_tests()
 {
     Array *arr = create_array(3);
 
-    mu_assert(arr->count == 0, "Create failed");
-    mu_assert(arr->capacity == 3, "Create failed");
+    mu_assert(arr->count == 0, "Create failed 1");
+    mu_assert(arr->capacity == 3, "Create failed 2");
 
     mu_assert(arr_read(arr, 0) == NULL, "Value initialized not null");
 
@@ -34,31 +34,31 @@ char *day_2_array_tests()
 
     arr_insert(arr, "VALUE-1", 0);
 
-    mu_assert(strcmp(arr_read(arr, 0), "VALUE-1") == 0, "Insert value failed");
+    mu_assert(strcmp(arr_read(arr, 0), "VALUE-1") == 0, "Insert value failed 1");
 
     arr_insert(arr, "VALUE-2", 0);
 
-    mu_assert(arr->capacity == 2, "Resize array on insert failed");
-    mu_assert(arr->count == 2, "Resize array on insert failed");
+    mu_assert(arr->capacity == 2, "Resize array on insert failed 1a");
+    mu_assert(arr->count == 2, "Resize array on insert failed 1b");
 
-    mu_assert(strcmp(arr_read(arr, 0), "VALUE-2") == 0, "Insert value failed");
-    mu_assert(strcmp(arr_read(arr, 1), "VALUE-1") == 0, "Insert value failed");
+    mu_assert(strcmp(arr_read(arr, 0), "VALUE-2") == 0, "Insert value failed 2a");
+    mu_assert(strcmp(arr_read(arr, 1), "VALUE-1") == 0, "Insert value failed 2b");
 
     arr_insert(arr, "VALUE-3", 1);
 
-    mu_assert(arr->capacity == 4, "Resize array on insert failed");
-    mu_assert(arr->count == 3, "Resize array on insert failed");
+    mu_assert(arr->capacity == 4, "Resize array on insert failed 2a");
+    mu_assert(arr->count == 3, "Resize array on insert failed 2b");
 
-    mu_assert(strcmp(arr_read(arr, 0), "VALUE-2") == 0, "Insert value failed");
-    mu_assert(strcmp(arr_read(arr, 1), "VALUE-3") == 0, "Insert value failed");
-    mu_assert(strcmp(arr_read(arr, 2), "VALUE-1") == 0, "Insert value failed");
+    mu_assert(strcmp(arr_read(arr, 0), "VALUE-2") == 0, "Insert value failed 3a");
+    mu_assert(strcmp(arr_read(arr, 1), "VALUE-3") == 0, "Insert value failed 3b");
+    mu_assert(strcmp(arr_read(arr, 2), "VALUE-1") == 0, "Insert value failed 3c");
 
     arr_remove(arr, "VALUE-3");
 
     mu_assert(arr->count == 2, "Remove count failed");
 
-    mu_assert(strcmp(arr_read(arr, 0), "VALUE-2") == 0, "Remove value failed");
-    mu_assert(strcmp(arr_read(arr, 1), "VALUE-1") == 0, "Remove value failed");
+    mu_assert(strcmp(arr_read(arr, 0), "VALUE-2") == 0, "Remove value failed 4a");
+    mu_assert(strcmp(arr_read(arr, 1), "VALUE-1") == 0, "Remove value failed 4b");
     mu_assert(arr_read(arr, 2) == NULL, "Remove value failed");
 
     destroy_array(arr);
